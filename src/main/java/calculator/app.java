@@ -1,13 +1,14 @@
-import calculator.*;
-import java.util.*;
-public class main
+package calculator;
+
+import java.util.Scanner;
+public class app
 {
     public static void main(String args[])
     {
         int flag=0,ch;
         double num1,num2;
         Scanner reader = new Scanner(System.in);
-        System.out.println("Hello, This is a Calculator System");
+        System.out.println("Calculator System");
         do
         {
             System.out.println("Option Menu");
