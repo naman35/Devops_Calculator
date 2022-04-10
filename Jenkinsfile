@@ -2,19 +2,16 @@ pipeline {
   agent any
   stages 
     {
-    stage('Clean') {
+
+    stage ('SCM Checkout') {
+            steps {
+                git credentialsId: 'github-credentials', url: 'https://github.com/NightmareNight-em/devops_calculator.git'
+            }
+        }
+
+    stage('mvn goals') {
       steps {
-        bat 'mvn clean'
-      }
-    }
-    stage('Compile') {
-      steps {
-        bat 'mvn compile'
-      }
-    }
-    stage('Test') {
-      steps {
-        bat 'mvn test'
+        bat 'mvn clean compile test package'
       }
     }
   }
