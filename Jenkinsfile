@@ -41,7 +41,9 @@ stage('Push image to DockerHub') {
             }
         } 
         stage('Run Container on Dev Server'){
+	steps{
 	bat 'docker run -p 8081:8081 -d docker4harshit/calculator:3'
+                 }
     }
   }
 }
