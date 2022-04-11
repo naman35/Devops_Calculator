@@ -26,7 +26,7 @@ stage('Building Docker image') {
                 }
             } 
         }
-stage('Deploy our image') { 
+stage('Push image to DockerHub') { 
             steps { 
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
@@ -40,5 +40,8 @@ stage('Deploy our image') {
                 bat "docker rmi $registry:$BUILD_NUMBER" 
             }
         } 
+        stage('Run Container on Dev Server'){
+	bat 'docker run -p 8081:8081 -d docker4harshit/calculator:3'
+    }
   }
 }
